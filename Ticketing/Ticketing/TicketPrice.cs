@@ -17,7 +17,8 @@ namespace Ticketing
         const decimal mdecBalcony = 40.5m;
         const decimal mdecGeneral = 30.75m;
         const decimal mdecBox = 80.0m;
-        const decimal mdecDiscount = 5.0m; 
+        const decimal mdecDiscount = 5.0m;
+        const decimal mdecExtraDiscount = 0.1m;
 
         private int Section
         {
@@ -68,7 +69,7 @@ namespace Ticketing
                  break;
          }
          if (discount)
-         { mPrice -= mdecDiscount; }
+         { mPrice -= (mdecDiscount + mPrice * mdecExtraDiscount); }
 
          AmountDue = mPrice * quantity;
 
